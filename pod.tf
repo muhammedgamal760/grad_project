@@ -52,7 +52,9 @@ resource "kubernetes_pod" "mysql" {
       image = "mysql"
       name  = "mysql"
       env_from {
-        secret_ref = kubernetes_secret.db-sec.id
+        secret_ref {
+          name = kubernetes_secret.db-sec.metadata.0.name
+        }
       }
     }
   }
