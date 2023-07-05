@@ -34,23 +34,23 @@ resource "kubernetes_service" "nexus" {
   }
 }
 
-resource "kubernetes_service" "app" {
-  metadata {
-    name      = "app"
-    namespace = kubernetes_namespace.dev.id
-  }
-  spec {
-    selector = {
-      name = kubernetes_pod.nexus.metadata.0.labels.name
-    }
-    port {
-      port        = 83
-      target_port = 80
-    }
+# resource "kubernetes_service" "app" {
+#   metadata {
+#     name      = "app"
+#     namespace = kubernetes_namespace.dev.id
+#   }
+#   spec {
+#     selector = {
+#       name = kubernetes_pod.app.metadata.0.labels.name
+#     }
+#     port {
+#       port        = 83
+#       target_port = 80
+#     }
 
-    type = "NodePort"
-  }
-}
+#     type = "NodePort"
+#   }
+# }
 
 resource "kubernetes_service" "mysql" {
   metadata {
@@ -59,7 +59,7 @@ resource "kubernetes_service" "mysql" {
   }
   spec {
     selector = {
-      name = kubernetes_pod.nexus.metadata.0.labels.name
+      name = kubernetes_pod.mysql.metadata.0.labels.name
     }
     port {
       port        = 84
@@ -69,3 +69,4 @@ resource "kubernetes_service" "mysql" {
     type = "NodePort"
   }
 }
+

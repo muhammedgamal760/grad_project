@@ -9,12 +9,25 @@ resource "kubernetes_pod" "jenkins" {
 
   spec {
     container {
-      image = "jenkins/jenkins"
+      image = "muhammedgamal/grad-4"
       name  = "jenkins"
+      volume_mount {
+        name      = "docker-socket"
+        mount_path = "/var/run/docker.sock"
+      }
+    }
+
+    volume {
+      name = "docker-socket"
+
+      host_path {
+        path = "/var/run/docker.sock"
+      }
+    }
     }
 
   }
-}
+
 
 resource "kubernetes_pod" "nexus" {
   metadata {
@@ -59,5 +72,7 @@ resource "kubernetes_pod" "mysql" {
     }
   }
 }
+
+
 
 
