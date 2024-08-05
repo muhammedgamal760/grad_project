@@ -6,6 +6,8 @@ on:
       - staging
       - master
       - main
+  repository_dispatch:
+    types: [test]
 
 name: test
 
