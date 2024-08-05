@@ -10,10 +10,10 @@ env:
 jobs:
   print-vars:
     runs-on: ubuntu-latest
+    if: ${{ env.repo }} == "Salt"
     name: show vars
     steps:
       - name: print vars
-        if: ${{ env.repo }} == "Salt"
         run: |
           echo repo_name = ${{ env.repo }}
         
