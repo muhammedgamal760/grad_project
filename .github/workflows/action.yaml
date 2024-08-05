@@ -1,18 +1,11 @@
 on:
-  push:
-    branches:
-      - preprod
-      - dev
-      - staging
-      - master
-      - main
   repository_dispatch:
     types: [test]
 
 name: test
 
 env:
-  repo: '${{ github.event.repository.name }}'
+  repo: '${{ github.event.client_payload.repo }}'
 
 jobs:
   print-vars:
