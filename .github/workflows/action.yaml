@@ -10,7 +10,7 @@ env:
 jobs:
   print-vars:
     runs-on: ubuntu-latest
-    if: ${{ env.repo }} == "muhammedgamal760/jenkins_nodejs"
+    if: '${{ env.repo }}' == "muhammedgamal760/jenkins_nodejs"
     name: show vars
     steps:
       - name: print vars
