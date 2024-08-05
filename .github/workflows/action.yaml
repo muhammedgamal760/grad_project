@@ -12,7 +12,7 @@ on:
 name: test
 
 env:
-  repo: '${{ github.repository }}'
+  repo: '${{ github.event.repository.name }}'
 
 jobs:
   print-vars:
