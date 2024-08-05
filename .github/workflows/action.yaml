@@ -5,7 +5,7 @@ on:
 name: test
 
 env:
-  repo: '${{ github.event.client_payload.repo }}'
+  repo: '${{ github.event.client_payload.repository.name }}'
 
 jobs:
   print-vars:
