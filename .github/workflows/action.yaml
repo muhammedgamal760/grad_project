@@ -10,7 +10,7 @@ env:
 jobs:
   print-vars:
     runs-on: ubuntu-latest
-    if: ${{ env.repo }} == "Salt"
+    if: ${{ env.repo }} == "jenkins_nodejs"
     name: show vars
     steps:
       - name: print vars
