@@ -1,0 +1,22 @@
+on:
+  push:
+    branches:
+      - preprod
+      - dev
+      - staging
+      - master
+      - main
+
+name: test
+
+env:
+  repo: '${{ github.repository }}'
+
+jobs:
+  print-vars:
+    runs-on: ubuntu-latest
+    name: show vars
+    steps:
+      - name: print vars
+        run: |
+          echo repo_name = ${{ env.repo }}
