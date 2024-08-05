@@ -13,7 +13,7 @@ jobs:
     name: show vars
     steps:
       - name: print vars
-        if: ${{ ${env.repo} == Salt) }}
+        if: ${{ ${env.repo} == "Salt" }}
         run: |
           echo repo_name = ${{ env.repo }}
         
