@@ -5,12 +5,12 @@ on:
 name: test
 
 env:
-  repo: '${{ github.event.client_payload.repository.name }}'
+  repo: '${{ github.event.client_payload.repo }}'
 
 jobs:
   print-vars:
     runs-on: ubuntu-latest
-    if: ${{ env.repo }} == "jenkins_nodejs"
+    if: ${{ env.repo }} == "muhammedgamal760/jenkins_nodejs"
     name: show vars
     steps:
       - name: print vars
