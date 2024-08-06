@@ -11,7 +11,7 @@ env:
 jobs:
   print-vars-1:
     runs-on: ubuntu-latest
-    if: ${{ github.event.client_payload.repo == 'muhammedgamal760/jenkins_nodejs' }}
+    if: contains(${{ github.event.client_payload.repo }}, 'jenkins_nodejs')
     name: show vars one
     steps:
       - name: print vars one
