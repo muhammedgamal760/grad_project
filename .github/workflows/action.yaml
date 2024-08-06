@@ -6,14 +6,24 @@ name: test
 
 env:
   repo: '${{ github.event.client_payload.repo }}'
+  jimmy: 'jimmy'
 
 jobs:
-  print-vars:
+  print-vars-1:
     runs-on: ubuntu-latest
     if: ${{ github.event.client_payload.repo == 'muhammedgamal760/jenkins_nodejs' }}
-    name: show vars
+    name: show vars one
     steps:
-      - name: print vars
+      - name: print vars one
         run: |
           echo repo_name = ${{ env.repo }}
+
+  print-vars-2:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.client_payload.repo != 'muhammedgamal760/jenkins_nodejs' }}
+    name: show vars two
+    steps:
+      - name: print vars two
+        run: |
+          echo jimmy = ${{ env.jimmy }}
         
